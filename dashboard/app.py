@@ -4,10 +4,9 @@ import pandas as pd
 st.set_page_config(page_title="Trading Bot Dashboard", layout="wide")
 st.title("📊 Trading Bot Dashboard")
 
-try:
-    df = pd.read_csv("journal.csv", header=None,
-                     names=["Time", "Symbol", "Signal", "Price", "Qty"])
-    st.dataframe(df)
-    st.metric("Total Trades", len(df))
-except FileNotFoundError:
-    st.warning("Aún no hay operaciones registradas.")
+st.metric("Account Balance", "$500")
+st.metric("Drawdown", "2%")
+st.metric("Trades Today", "3")
+
+st.subheader("Performance")
+st.line_chart(pd.DataFrame({"equity":[500,510,505,520]}))
